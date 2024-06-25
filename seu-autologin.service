@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/opt/auto_login/login.sh
-WorkingDirectory=/opt/auto_login/
+ExecStart=/opt/seu-autologin/seu-autologin.sh
+WorkingDirectory=/opt/seu-autologin/
 Restart=always
  
 [Install]
