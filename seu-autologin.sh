@@ -20,7 +20,7 @@ function get_json_value() {
 
   #echo ${value}
   IP=${value}
-  echo $(date "+%Y-%m-%d %H:%M:%S") "IP:" ${IP} | logger --tag seu-login
+  echo $(date "+%Y-%m-%d %H:%M:%S") "IP:" ${IP} | logger --tag seu-autologin
 }
 
 function login_wlan() {
@@ -33,34 +33,34 @@ function login_wlan() {
   url="https://w.seu.edu.cn:801/eportal/?c=Portal&a=login&callback=dr1003&login_method=1&user_account=%2C0%2C$ID&user_password=$password&wlan_user_ip=$IP"
   login=$(curl "$url")
   #$login
-  echo $(date "+%Y-%m-%d %H:%M:%S") "Result: " ${login} | logger --tag seu-login}
+  echo $(date "+%Y-%m-%d %H:%M:%S") "Result: " ${login} | logger --tag seu-autologin}
 
 # 定义检查函数
 check_wifi() {
   nmcli -p connection | grep SEU-WLAN | cut -b 1-8
 }
 
-echo $(date "+%Y-%m-%d %H:%M:%S") "[Begin] 自动登录服务启动" | logger --tag seu-login
+echo $(date "+%Y-%m-%d %H:%M:%S") "[Begin] 自动登录服务启动" | logger --tag seu-autologin
 
 # 循环检查，直到找到SEU-WLAN
 while true; do
   result=$(check_wifi)
   if [[ -n "$result" ]]; then
-    echo $(date "+%Y-%m-%d %H:%M:%S") "[WLAN] SEU-WLAN found!" | logger --tag seu-login
+    echo $(date "+%Y-%m-%d %H:%M:%S") "[WLAN] SEU-WLAN found!" | logger --tag seu-autologin
     sleep 10s
     break
   else
-    echo $(date "+%Y-%m-%d %H:%M:%S") "[WLAN] SEU-WLAN not found, retrying in 5 seconds..." | logger --tag seu-login
+    echo $(date "+%Y-%m-%d %H:%M:%S") "[WLAN] SEU-WLAN not found, retrying in 5 seconds..." | logger --tag seu-autologin
     sleep 5s
   fi
 done
 
 while true; do
   if ping -c 1 -w 10 baidu.com >/dev/null; then
-    echo $(date "+%Y-%m-%d %H:%M:%S") "[Success] 网络可正常访问" | logger --tag seu-login
+    echo $(date "+%Y-%m-%d %H:%M:%S") "[Success] 网络可正常访问" | logger --tag seu-autologin
     sleep 40m
   else
-    echo $(date "+%Y-%m-%d %H:%M:%S") "[Trial] 无网络，正在尝试登入校园网..." | logger --tag seu-login
+    echo $(date "+%Y-%m-%d %H:%M:%S") "[Trial] 无网络，正在尝试登入校园网..." | logger --tag seu-autologin
     login_wlan
     sleep 10s
   fi
