@@ -31,3 +31,5 @@ Platform: Ubuntu 24.04
 `sudo systemctl daemon-reload`
 
 `sudo systemctl enable seu-autologin.service`
+# 日志查看
+`sudo journalctl -u seu-autologin -b`
