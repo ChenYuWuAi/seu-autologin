@@ -14,7 +14,7 @@ Platform: Ubuntu 24.04
 
 `sudo mkdir /opt/seu-autologin`
 
-`sudo cp ./login.sh /opt/seu-autologin/`
+`sudo cp ./seu-autologin.sh /opt/seu-autologin/`
 
 使用你最喜欢的编辑器编辑`seu-autologin.sh`的前几行，只需要加入学号和密码即可。
 
