@@ -1,0 +1,12 @@
+[Unit]
+Description=SEU-WLAN Auto Login
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/auto_login/login.sh
+WorkingDirectory=/opt/auto_login/
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
