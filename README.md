@@ -1,7 +1,7 @@
 # seu-autologin
 东南大学校园网自动登录脚本(2024年6月可用)
 Platform: Ubuntu 24.04
-# Usage(安装路径默认/opt/auto_login/)
+# Usage(安装路径默认/opt/seu-autologin/)
 1. 克隆源代码
 `git clone https://github.com/ChenYuWuAi/seu-autologin`
 2. 拷贝并填写密码
