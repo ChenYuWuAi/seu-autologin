@@ -8,7 +8,7 @@ Platform: Ubuntu 24.04
    
 `git clone https://github.com/ChenYuWuAi/seu-autologin`
 
-3. 拷贝并填写密码
+2. 拷贝并填写密码
    
 `cd seu-autologin`
 
@@ -20,11 +20,11 @@ Platform: Ubuntu 24.04
 
 > 根据环境的不同，你需要进行基本测试，修改sh脚本判断是否连上SEU-WLAN的逻辑，或者开机延时
 
-4. 设置权限(防止泄密)
+3. 设置权限(防止泄密)
    
 `sudo chmod 700 /opt/seu-autologin/seu-autologin.sh`
 
-6. 允许开机启动
+4. 允许开机启动
    
 `sudo cp ./seu-autologin.service /etc/systemd/system/`
 
